@@ -33,6 +33,16 @@ DigitalOcean is where this project is being hosted, all droplets are contained w
 - [What to do When You See "Repository does not have a release file" Error in Ubuntu](https://itsfoss.com/repository-does-not-have-release-file-error-ubuntu/)
 - [How to Deploy Your Application to Digital Ocean Using GitHub Actions And Save up on CI/CD Services Costs](https://medium.com/swlh/how-to-deploy-your-application-to-digital-ocean-using-github-actions-and-save-up-on-ci-cd-costs-74b7315facc2)
 
+### Sigma Rules
+- [A Deep Dive Into Sigma Rules And How To Write Your Own Threat Detection Rules](https://fourcore.io/blogs/sigma-rules-open-source-threat-hunting-approach)
+- [How to Write Sigma Rules](https://www.nextron-systems.com/2018/02/10/write-sigma-rules/)
+- 
+
+### Misc
+- [How to Configure a Droplet as a VPC Gateway](https://docs.digitalocean.com/products/networking/vpc/how-to/configure-droplet-as-gateway/)
+- [Tool Analysis Result Sheet](https://jpcertcc.github.io/ToolAnalysisResultSheet/#)
+- [Online UUID Generator](https://www.uuidgenerator.net/)
+
 
 
 
