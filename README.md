@@ -13,6 +13,13 @@ DigitalOcean is where this project is being hosted, all droplets are contained w
 
 ## Resources
 
+### Kibana
+- [Elastic Security Fundamentals: SIEM](https://www.elastic.co/training/elastic-security-fundamentals-siem)
+- [How To Series: Kibana](https://www.elastic.co/videos/training-how-to-series-stack)
+- [Kibana Fundamentalss](https://www.elastic.co/training/kibana-fundamentals)
+- [Kibana Query Language](https://www.elastic.co/guide/en/kibana/current/kuery-query.html)
+- [Kibana: Loading Sample Data](https://www.elastic.co/guide/en/kibana/6.8/tutorial-load-dataset.html)
+
 ### Ansible
 - [How to Use Ansible: A Reference Guide](https://www.digitalocean.com/community/cheatsheets/how-to-use-ansible-cheat-sheet-guide)
 - [How To Manage Multiple Servers with Ansible Ad Hoc Commands](https://www.digitalocean.com/community/cheatsheets/how-to-manage-multiple-servers-with-ansible-ad-hoc-commands)
@@ -36,7 +43,7 @@ DigitalOcean is where this project is being hosted, all droplets are contained w
 ### Sigma Rules
 - [A Deep Dive Into Sigma Rules And How To Write Your Own Threat Detection Rules](https://fourcore.io/blogs/sigma-rules-open-source-threat-hunting-approach)
 - [How to Write Sigma Rules](https://www.nextron-systems.com/2018/02/10/write-sigma-rules/)
-- 
+
 
 ### Misc
 - [How to Configure a Droplet as a VPC Gateway](https://docs.digitalocean.com/products/networking/vpc/how-to/configure-droplet-as-gateway/)
