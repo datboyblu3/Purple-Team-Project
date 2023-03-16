@@ -6,6 +6,7 @@ DigitalOcean is where this project is being hosted, all droplets are contained w
 - All droplets will be built with DO's recommended linux os versions
 - DigitalOcean's guides recommends Suricata to be installed on certain linux OS versions
 - Suricata does not work well with Ubuntu 22.04, this is because a Suricata update is currently in beta for the latest version
+- Ansible scripts will be used to create users, ssh files, transfer ssh keys and edit ssh as well as other configuration files
 
 ![Lab Diagram drawio](https://github.com/datboyblu3/Purple-Team-Project/blob/main/Images/Lab%20Diagram.drawio.png)
 
