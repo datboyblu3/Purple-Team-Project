@@ -18,3 +18,4 @@ Confirm the packets were dropped with the following:
 jq 'select(.alert .signature_id==2100498)' /var/log/suricata/eve.json
 ```
 
+- Looks like the version of suricata is not compatible with Ubuntu 22.10, the following link states suricata 7.0.0 beta is available for ubuntu kinetic 22.10 [Suricata 7.0.0](https://forum.suricata.io/t/suricata-7-0-0-beta-1-packages-are-now-available-for-ubuntu-on-ubuntu-ppa-launchpad/2921)
