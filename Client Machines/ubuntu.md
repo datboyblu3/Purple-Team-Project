@@ -11,3 +11,8 @@ Notes for Ubuntu, client machine
 3/29/2023
 ---------
 - Starting from scratch, create ansible scripts to create user accounts and modify sshd_config files
+
+3/30/2023
+---------
+- Created two new ubuntu machines with the same config
+- Run script to create users and ssh configs
