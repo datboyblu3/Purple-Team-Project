@@ -1,7 +1,6 @@
 ---
-- name: Add the user 'dan' with a specific uid and a primary group of 'admin'
-  ansible.builtin.user:
-    name: dan
-    comment: Creating user 'dan'
-    uid: 1000
-    group: sudo
+- name: Create Ubuntu User and SSH Keys
+  become: yes
+  become_method: enable
+  hosts: all
+  
