@@ -4,3 +4,11 @@
   become_method: enable
   hosts: all
   
+  tasks:
+  
+   - name: Create Ubuntu User
+     ansible.builtin.user:
+       name: dan
+       comment: Creating user "dan"
+       uid: 1000
+       group: sudo
