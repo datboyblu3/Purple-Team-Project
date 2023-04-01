@@ -1,0 +1,8 @@
+[ubuntu1]
+ubuntu ansible_host=146.190.220.71 ansible_user=dan ansible_connection=ssh
+
+[ubuntu2]
+ubuntu ansible_host=137.184.72.137 ansible_user=dan ansible_connection=ssh
+
+[ubuntu3]
+ubuntu ansible_host=137.184.76.158 ansible_user=dan ansible_connection=ssh]
