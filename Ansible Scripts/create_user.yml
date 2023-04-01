@@ -6,7 +6,7 @@
   
   tasks:
   
-   - name: Create Ubuntu User 'dan' with specific uid and primary group
+   - name: Create Ubuntu User 'dan' with specific uid and primary group of 'sudo'
      ansible.builtin.user:
        name: dan
        comment: Creating user "dan"
