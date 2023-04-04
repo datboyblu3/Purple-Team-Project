@@ -6,7 +6,7 @@
   
   tasks:
   
-   - name: Create Ubuntu User 'dan' with specific uid and primary group of 'sudo'
+   - name: Create Ubuntu user 'dan' with specific uid and primary group of 'sudo'
      ansible.builtin.user:
        name: dan
        comment: Creating user "dan"
@@ -15,3 +15,9 @@
        password: '$6$hzO9QgF8lSExriG$a71PwjQKREVmKasixZUMmTvceLRqsKdTFBK4sMS3//1sxUvzkHX9sE7vfzawMg5rsIOZLdyrW1wb3B2MsCxWu.'
        createhome: yes                    #Defaults to yes
        home: /home/dan                    #Defaults to /home/<username>
+
+   - name: Remove user 'test' from all machines
+     ansible.builtin.user:
+       name: test
+       state: absent
+       remove: yes
