@@ -10,12 +10,29 @@ DigitalOcean is where this project is being hosted, all droplets are contained w
 
 ![Lab Diagram drawio](https://github.com/datboyblu3/Purple-Team-Project/blob/main/Images/Lab%20Diagram.drawio.png)
 
+## Creating Droplets with DigitalOcean
+1) In your project directory...
+```JavaScript
+terraform init
+```
+2) Execute terraform plan, below is an example of the output
+```JavaScript
+terraform plan
+```
+
+<img width="800" alt="Screenshot 2023-04-15 at 5 13 35 PM" src="https://user-images.githubusercontent.com/95729902/232253397-1b96e9c1-fa17-47f8-890f-1323bd20d06e.png">
+
+3) Execute terraform apply to create droplets
+
+<img width="613" alt="Screenshot 2023-04-15 at 5 18 06 PM" src="https://user-images.githubusercontent.com/95729902/232253522-e31e0f11-eb95-4165-bdbb-e08612fa83de.png">
 
 
 ## Resources
 
-## Terraform
+### Terraform
 - [Tutorial Series: How To Manage Infrastructure with Terraform](https://www.digitalocean.com/community/tutorial_series/how-to-manage-infrastructure-with-terraform)
+- [Infrastructure as Code With Terraform](https://www.youtube.com/watch?v=dSJ6zenfRK8&ab_channel=DigitalOcean)
+- [Terraform With DigitalOcean for the Impatient](https://www.youtube.com/playlist?list=PL9evZl_m5wqsc7C38L9grx-djts2bqT_b)
 
 ### Kibana
 - [Elastic Security Fundamentals: SIEM](https://www.elastic.co/training/elastic-security-fundamentals-siem)
