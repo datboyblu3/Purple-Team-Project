@@ -5,7 +5,7 @@ data "digitalocean_project" "purple_team_project" {
 # Get SSH key
 resource "digitalocean_ssh_key" "project" {
   name       = "terraform"
-  public_key = file("/Users/dan/.ssh/id_rsa.pub")
+  public_key = file("/Put/Your/SSH/Public Key Here")
 }
 
 #Create Splunk Droplet
