@@ -14,6 +14,9 @@ DigitalOcean is where this project is being hosted, all droplets are contained w
 
 ## Resources
 
+## Terraform
+- [Tutorial Series: How To Manage Infrastructure with Terraform](https://www.digitalocean.com/community/tutorial_series/how-to-manage-infrastructure-with-terraform)
+
 ### Kibana
 - [Elastic Security Fundamentals: SIEM](https://www.elastic.co/training/elastic-security-fundamentals-siem)
 - [How To Series: Kibana](https://www.elastic.co/videos/training-how-to-series-stack)
