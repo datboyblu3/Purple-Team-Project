@@ -43,10 +43,11 @@ resource "digitalocean_droplet" "suricata" {
 }
 
 
-#Create Client1 Droplet
+#Create Client Droplet
 resource "digitalocean_droplet" "client1" {
+    count                     = 3
     image                     = "ubuntu-20-04-x64"
-    name                      = "client1"
+    name                      = "web.${count.index}"
     region                    = "nyc3"
     size                      = "s-1vcpu-1gb"
     monitoring                = true
@@ -54,26 +55,7 @@ resource "digitalocean_droplet" "client1" {
     ssh_keys                  = [digitalocean_ssh_key.project.id]
 }
 
-#Create Client2 Droplet
-resource "digitalocean_droplet" "client2" {
-    image                     = "ubuntu-20-04-x64"
-    name                      = "client2"
-    region                    = "nyc3"
-    size                      = "s-1vcpu-1gb"
-    monitoring                = true
-    #private_networking       = true
-    ssh_keys                  = [digitalocean_ssh_key.project.id]
-}
 
-#Create Client3 Droplet
-resource "digitalocean_droplet" "client3" {
-    image                     = "ubuntu-20-04-x64"
-    name                      = "client3"
-    region                    = "nyc3"
-    size                      = "s-1vcpu-1gb"
-    monitoring                = true
-    #private_networking       = true
-    ssh_keys                  = [digitalocean_ssh_key.project.id]
 }
 output "server_ip" {
   value = digitalocean_droplet.splunk.ipv4_address
