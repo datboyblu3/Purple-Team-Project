@@ -1,6 +1,6 @@
 import json, time
 
-fixed_name = "web"
+fixed_name = "client"
 result = {
   "name": f"{fixed_name}-{int(time.time())}",
 }
