@@ -44,10 +44,10 @@ resource "digitalocean_droplet" "suricata" {
 
 
 #Create Client Droplet
-resource "digitalocean_droplet" "client1" {
+resource "digitalocean_droplet" "client" {
     count                     = 3
     image                     = "ubuntu-20-04-x64"
-    name                      = "web.${count.index}"
+    name                      = "client.${count.index}"
     region                    = "nyc3"
     size                      = "s-1vcpu-1gb"
     monitoring                = true
