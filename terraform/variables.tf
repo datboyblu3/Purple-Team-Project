@@ -1,2 +1,4 @@
-variable "do_token" {}
+variable "do_token" {
+	sensitive = true
+}
 variable "domain_name" {}
