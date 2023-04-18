@@ -57,6 +57,22 @@ resource "digitalocean_droplet" "client1" {
 
 
 }
-output "server_ip" {
-  value = digitalocean_droplet.splunk.ipv4_address
+
+resource "digitalocean_droplet" "web" {
+  count  = 3
+  image  = "ubuntu-18-04-x64"
+  name   = "web-${count.index}"
+  region = "fra1"
+  size   = "s-1vcpu-1gb"
+
+  ssh_keys = [
+      data.digitalocean_ssh_key.terraform.id
+  ]
+}
+
+output "droplet_ip_addresses" {
+  value = {
+    for droplet in digitalocean_droplet.web:
+    droplet.name => droplet.ipv4_address
+  }
 }
