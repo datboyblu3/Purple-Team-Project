@@ -34,6 +34,7 @@ terraform plan
 - [Tutorial Series: How To Manage Infrastructure with Terraform](https://www.digitalocean.com/community/tutorial_series/how-to-manage-infrastructure-with-terraform)
 - [Infrastructure as Code With Terraform](https://www.youtube.com/watch?v=dSJ6zenfRK8&ab_channel=DigitalOcean)
 - [Terraform With DigitalOcean for the Impatient](https://www.youtube.com/playlist?list=PL9evZl_m5wqsc7C38L9grx-djts2bqT_b)
+- [8 Best Practices](https://www.youtube.com/watch?v=gxPykhPxRW0&ab_channel=TechWorldwithNana)
 
 ### Kibana
 - [Elastic Security Fundamentals: SIEM](https://www.elastic.co/training/elastic-security-fundamentals-siem)
