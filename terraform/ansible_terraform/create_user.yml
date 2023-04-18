@@ -16,7 +16,7 @@
        createhome: yes                    #Defaults to yes
        home: /home/danny                    #Defaults to /home/<username>
 
-    - name: Add SSH key to 'sammy'
+    - name: Add SSH key to 'danny'
       authorized_key:
         user: sammy
         state: present
