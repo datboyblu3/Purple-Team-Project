@@ -1,0 +1,8 @@
+[ubuntu1]
+ubuntu ansible_host= ansible_user= ansible_connection=ssh
+
+[ubuntu2]
+ubuntu ansible_host= ansible_user= ansible_connection=ssh
+
+[ubuntu3]
+ubuntu ansible_host= ansible_user= ansible_connection=ssh]
