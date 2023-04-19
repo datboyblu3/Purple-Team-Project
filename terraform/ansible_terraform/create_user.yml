@@ -14,7 +14,7 @@
        group: sudo
        password: '$6$hzO9QgF8lSExriG$a71PwjQKREVmKasixZUMmTvceLRqsKdTFBK4sMS3//1sxUvzkHX9sE7vfzawMg5rsIOZLdyrW1wb3B2MsCxWu.'
        createhome: yes                    #Defaults to yes
-       home: /home/danny                    #Defaults to /home/<username>
+       home: /home/dan                    #Defaults to /home/<username>
 
     - name: Add SSH key to 'dan'
       authorized_key:
