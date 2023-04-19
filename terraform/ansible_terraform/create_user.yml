@@ -6,19 +6,19 @@
   
   tasks:
   
-   - name: Create Ubuntu user 'danny' with specific uid and primary group of 'sudo'
+   - name: Create Ubuntu user 'dan' with specific uid and primary group of 'sudo'
      ansible.builtin.user:
-       name: danny
-       comment: Creating user "danny"
+       name: dan
+       comment: Creating user "dan"
        uid: 1000
        group: sudo
        password: '$6$hzO9QgF8lSExriG$a71PwjQKREVmKasixZUMmTvceLRqsKdTFBK4sMS3//1sxUvzkHX9sE7vfzawMg5rsIOZLdyrW1wb3B2MsCxWu.'
        createhome: yes                    #Defaults to yes
        home: /home/danny                    #Defaults to /home/<username>
 
-    - name: Add SSH key to 'danny'
+    - name: Add SSH key to 'dan'
       authorized_key:
-        user: sammy
+        user: dan
         state: present
         key: "{{}lookup('file',pub_key)}"
 
