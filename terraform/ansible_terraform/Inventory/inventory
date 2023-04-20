@@ -1,15 +1,10 @@
-[server_1]
-client1 ansible_host=174.138.68.52 ansible_user=dan ansible_connection=ssh
-
-[server_2]
-client2 ansible_host=174.138.68.64 ansible_user=dan ansible_connection=ssh
-
-[server_3]
-client3 ansible_host=174.138.68.53 ansible_user=dan ansible_connection=ssh]
+[clients]
+client1 ansible_host=174.138.68.52
+client2 ansible_host=174.138.68.64
+client3 ansible_host=174.138.68.53
 
 [suricata]
-suricata ansible_host=174.138.68.50 ansible_connection=ssh
+suricata ansible_host=174.138.68.50 
 
 [splunk]
-splunk ansible_host=159.65.178.242 ansible_connection=ssh
-
+splunk ansible_host=159.65.178.242 

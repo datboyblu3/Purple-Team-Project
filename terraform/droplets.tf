@@ -70,6 +70,18 @@ resource "digitalocean_droplet" "web" {
   ]
 }
 
+# Add lines for Ansible execution
+provisioner "remote-exec"{
+    inline = ["sudo apt update", "sudo apt install python3 -y", "echo Done!"]
+
+    connection {
+      host          = self.ipv4_address
+      type          = "ssh"
+      user          = "root"
+      private_key   = file(var.pvt_key)   
+    }
+}
+
 output "droplet_ip_addresses" {
   value = {
     for droplet in digitalocean_droplet.web:
