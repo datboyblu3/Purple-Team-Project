@@ -1,0 +1,100 @@
+---
+- name: Add repository
+  yum_repository:
+    name: suricata
+    description: Suricata YUM repo
+    baseurl: https://artifactory.esss.lu.se/artifactory/suricata/epel-7-$basearch/
+    gpgkey: https://artifactory.esss.lu.se/artifactory/suricata/pubkey.gpg
+    gpgcheck: true
+    enabled: true
+
+- name: Install Suricata
+  package:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - epel-release
+    - yum-plugin-copr
+    - python-pip
+    - python-yaml
+    - suricata
+
+- name: Install Suricata-update
+  pip:
+    name: suricata-update
+    state: present
+  register: suricataupdate
+  ignore_errors: true
+
+- name: Install Suricata-update
+  pip:
+    name: suricata-update
+    extra_args: "--pre --upgrade suricata-update --proxy='{{ suricata_proxy }}'"
+  when: suricataupdate is failed
+
+- name: Generate suricata configuration file
+  template:
+    src: "{{ item.source }}"
+    dest: "{{ item.destination }}"
+    owner: suricata
+    mode: 0644
+  with_items:
+    - { source: suricata.yaml.j2, destination: /etc/suricata/suricata.yaml }
+    - { source: disable.conf.j2, destination: /etc/suricata/disable.conf }
+    - { source: suricata.j2, destination: /etc/sysconfig/suricata }
+  notify: Restart suricata
+
+- name: Enable and run suricata sources
+  command: suricata-update enable-source "{{ item }}"
+  with_items: "{{ suricata_update_sources }}"
+  when: suricata_update_enabled
+  changed_when: false
+
+- name: Run suricata-update
+  command: suricata-update
+  changed_when: false
+  loop:
+    - suricata-update update-sources
+    - suricata-update
+
+- name: Making sure that Suricata is enabled and running
+  systemd:
+    name: suricata
+    state: started
+    enabled: true
+
+- name: Setup crontab for suricata-update
+  cron:
+    name: "suricata-update {{ suricata_idx }}"
+    minute: "{{ item.min }}"
+    hour: "{{ item.hr }}"
+    user: root
+    job: "/usr/bin/suricata-update && /bin/systemctl restart suricata"
+    cron_file: suricata
+  when: suricata_update_enabled
+  loop:
+    - { hr: "0", min: "0" }
+    - { hr: "3", min: "0" }
+    - { hr: "6", min: "0" }
+    - { hr: "9", min: "0" }
+    - { hr: "12", min: "0" }
+  loop_control:
+    index_var: suricata_idx
+
+- name: Setup crontab for suricata-update sources-update
+  cron:
+    name: sources-update
+    minute: "0"
+    hour: "18"
+    user: root
+    job: "/usr/bin/suricata-update update-sources && /usr/bin/suricata-update && /bin/systemctl restart suricata"
+    cron_file: suricata
+  when: suricata_update_enabled
+
+- name: Change directory permissions
+  file:
+    path: /etc/suricata
+    state: directory
+    owner: suricata
+    group: root
+    mode: 0655
