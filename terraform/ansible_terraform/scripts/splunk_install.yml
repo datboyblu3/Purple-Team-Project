@@ -1,0 +1,48 @@
+---
+- name: Install Splunk on Ubuntu 20.04
+  hosts: droplet
+  become: true
+
+  vars:
+    splunk_package_url: "https://download.splunk.com/products/splunk/releases/{{ splunk_version }}/linux/splunk-{{ splunk_version }}-{{ splunk_build }}-Linux-x86_64.tgz"
+    splunk_version: "latest"
+    splunk_build: "xxxxxx" # Replace with the latest build number
+
+  tasks:
+    - name: Download Splunk package
+      get_url:
+        url: "{{ splunk_package_url }}"
+        dest: "/tmp/splunk-{{ splunk_version }}-{{ splunk_build }}.tgz"
+
+    - name: Verify checksum
+      block:
+        - name: Get expected checksum
+          get_url:
+            url: "{{ splunk_package_url }}.md5"
+            dest: "/tmp/splunk-{{ splunk_version }}-{{ splunk_build }}.tgz.md5"
+
+        - name: Calculate actual checksum
+          shell: "md5sum /tmp/splunk-{{ splunk_version }}-{{ splunk_build }}.tgz | cut -d ' ' -f 1"
+          register: actual_checksum
+
+        - name: Get expected checksum value
+          shell: "cut -d ' ' -f 1 /tmp/splunk-{{ splunk_version }}-{{ splunk_build }}.tgz.md5"
+          register: expected_checksum
+
+        - name: Compare checksums
+          fail:
+            msg: "Checksum verification failed"
+          when: actual_checksum.stdout != expected_checksum.stdout
+
+    - name: Install Splunk
+      unarchive:
+        src: "/tmp/splunk-{{ splunk_version }}-{{ splunk_build }}.tgz"
+        dest: "/opt"
+        remote_src: yes
+        creates: "/opt/splunk/bin/splunk"
+
+    - name: Start Splunk
+      command: "/opt/splunk/bin/splunk start --accept-license"
+      async: 0
+      poll: 0
+
