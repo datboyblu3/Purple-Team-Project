@@ -16,11 +16,11 @@
        createhome: yes                    #Defaults to yes
        home: /home/dan                    #Defaults to /home/<username>
 
-    - name: Add SSH key to 'dan'
-      authorized_key:
-        user: dan
-        state: present
-        key: "{{}lookup('file',pub_key)}"
+   - name: Add SSH key to 'dan'
+     authorized_key:
+       user: dan
+       state: present
+       key: "{{}lookup('file',pub_key)}"
 
    - name: Remove user 'test' from all machines
      ansible.builtin.user:
