@@ -1,0 +1,29 @@
+---
+- name: Install Splunk Universal Forwarder
+  hosts: all
+  become: yes
+
+  vars:
+    splunk_installer_path: /tmp/splunkforwarder-8.3.0-657388c7a488-linux-2.6-amd64.deb
+
+  tasks:
+    - name: Download Splunk Universal Forwarder
+      get_url:
+        url: https://download.splunk.com/products/universalforwarder/releases/8.3.0/linux/splunkforwarder-8.3.0-657388c7a488-linux-2.6-amd64.deb
+        dest: "{{ splunk_installer_path }}"
+
+    - name: Install Splunk Universal Forwarder
+      apt:
+        deb: "{{ splunk_installer_path }}"
+
+    - name: Configure Splunk Universal Forwarder
+      template:
+        src: splunkforwarder.inputs.conf.j2
+        dest: /opt/splunkforwarder/etc/system/local/inputs.conf
+      notify: restart splunk
+
+  handlers:
+    - name: restart splunk
+      service:
+        name: splunk
+        state: restarted
