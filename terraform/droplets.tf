@@ -30,7 +30,6 @@ resource "digitalocean_droplet" "ansible" {
     ssh_keys                  = [digitalocean_ssh_key.project.id]
 }
 
-
 #Create Suricata Droplet
 resource "digitalocean_droplet" "suricata" {
     image                     = "ubuntu-20-04-x64"
@@ -62,7 +61,7 @@ provisioner "remote-exec"{
       host          = self.ipv4_address
       type          = "ssh"
       user          = "root"
-      private_key   = file(var.pvt_key)   
+      private_key   = file(var.pvt_key)
     }
 }
 
@@ -70,10 +69,6 @@ provisioner "local-exec" {
     command = "ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -u root -i '${self.ipv4_address},' --private-key ${var.pvt_key} -e 'pub_key=${var.pub_key}' create_user.yml"
   }
 }
-
-
-
-
 
 output "droplet_ip_addresses" {
   value = {
