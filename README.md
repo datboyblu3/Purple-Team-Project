@@ -1,3 +1,5 @@
+Follow along at ![medium](https://medium.com/@DatBoyBlu3/purple-team-project-part-1-3f67c3f0e2f8) where I document my progress!
+
 # Purple-Team-Project
 A personal project of mine to practice and demonstrate offensive & defensive tactics, techniques and procedures in an effort to increase the skills in each area.
 DigitalOcean is where this project is being hosted, all droplets are contained within a virtual private cloud. Below is a high level, logical depiction of the project:
