@@ -1,9 +1,4 @@
 ---
-- name: Add Suricata APT Repository
-  apt_repository:
-    repo: 'ppa:oisf/suricata-stable'
-    state: present
-    
 - name: Add repository
   yum_repository:
     name: suricata
