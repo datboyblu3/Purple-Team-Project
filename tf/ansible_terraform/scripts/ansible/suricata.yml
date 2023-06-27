@@ -3,8 +3,17 @@
   apt_repository:
     repo: 'ppa:oisf/suricata-stable'
     state: present
-    
-- name: Add repository
+  
+- name: Install Required Packages
+  package:
+    name: "{{item}}"
+    state: latest
+  with_items:
+    - suricata
+    - oinkmaster
+    - ethtool
+
+- name: Add YUM repository
   yum_repository:
     name: suricata
     description: Suricata YUM repo
